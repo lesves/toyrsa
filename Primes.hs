@@ -39,9 +39,9 @@ isPrime n rand = if even n
     where
         (res, rand') = millerRabin n 10 rand
 
-generatePrime :: (RandomGen g) => Int -> g -> Integer
+generatePrime :: (RandomGen g) => Int -> g -> (Integer, g)
 generatePrime bits rand = if result
-        then candidate
+        then (candidate, rand'')
         else generatePrime bits rand''
     where
         (result, rand'') = isPrime candidate rand'
