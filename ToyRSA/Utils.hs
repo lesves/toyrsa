@@ -1,4 +1,4 @@
-module Utils (modExp, inv) where
+module ToyRSA.Utils (modExp, inv) where
 
 -- exponentiation modulo m
 modExp :: Integer -> Integer -> Integer -> Integer

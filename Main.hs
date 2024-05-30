@@ -1,7 +1,7 @@
 module Main (main) where
 import System.Environment (getArgs)
 import System.Random (getStdGen)
-import RSA (generateKeys, encrypt, decrypt)
+import ToyRSA.RSA (generateKeys, encrypt, decrypt)
 
 
 help :: IO ()

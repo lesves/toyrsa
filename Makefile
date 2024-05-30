@@ -6,9 +6,8 @@ run: all
 	./Main
 
 clean:
-	rm Main
-	rm *.hi
-	rm *.o
+	rm -f Main
+	rm -f *.hi *.o **/*.hi **/*.o
 
-Main: Main.hs Primes.hs Utils.hs
+Main: Main.hs ToyRSA/Primes.hs ToyRSA/Utils.hs ToyRSA/RSA.hs
 	ghc Main.hs

@@ -1,7 +1,7 @@
-module Primes (isPrime, generatePrime) where
+module ToyRSA.Primes (isPrime, generatePrime) where
 
 import System.Random (RandomGen, randomR)
-import Utils (modExp)
+import ToyRSA.Utils (modExp)
 
 
 randBigInteger :: (RandomGen g) => Int -> g -> (Integer, g)

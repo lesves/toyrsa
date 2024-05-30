@@ -1,7 +1,7 @@
-module RSA (PublicKey, PrivateKey, generateKeys, encrypt, decrypt) where
+module ToyRSA.RSA (PublicKey, PrivateKey, generateKeys, encrypt, decrypt) where
 import System.Random (RandomGen)
-import Primes (generatePrime)
-import Utils (modExp, inv)
+import ToyRSA.Primes (generatePrime)
+import ToyRSA.Utils (modExp, inv)
 
 
 data PublicKey = PublicKey { pubN :: Integer, pubE :: Integer } deriving (Show, Read, Eq)
