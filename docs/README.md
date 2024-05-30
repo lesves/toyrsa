@@ -8,11 +8,11 @@ cabal install --lib random
 make all
 
 # Generate a key:
-./Main --gen <keyfile>
+./toyrsa --gen <keyfile>
 
 # Encrypt something:
-./Main --enc <keyfile>
+./toyrsa --enc <keyfile>
 
 # Decrypt something:
-./Main --dec <keyfile>
+./toyrsa --dec <keyfile>
 ```

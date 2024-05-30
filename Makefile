@@ -1,13 +1,13 @@
 .PHONY: clean all run
 
-all: Main
+all: toyrsa
 
 run: all
-	./Main
+	./toyrsa
 
 clean:
-	rm -f Main
+	rm -f toyrsa
 	rm -f *.hi *.o **/*.hi **/*.o
 
-Main: Main.hs ToyRSA/Primes.hs ToyRSA/Utils.hs ToyRSA/RSA.hs
-	ghc Main.hs
+toyrsa: Main.hs Lib/Primes.hs Lib/Utils.hs Lib/RSA.hs
+	ghc Main.hs -o toyrsa

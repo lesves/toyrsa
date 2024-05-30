@@ -2,13 +2,13 @@ module Main (main) where
 import System.Environment (getArgs)
 import System.Random (getStdGen)
 import Numeric (showHex, readHex)
-import ToyRSA.RSA (generateKeys, encrypt, decrypt)
+import Lib.RSA (generateKeys, encrypt, decrypt)
 
 
 help :: IO ()
 help = do
-    putStrLn "==== ToyRSA ===="
-    putStrLn "Commands:       "
+    putStrLn "toyrsa v0"
+    putStrLn "commands:       "
     putStrLn "--gen <keyname> "
     putStrLn "--enc <keyname> "
     putStrLn "--dec <keyname> "
