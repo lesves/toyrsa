@@ -4,8 +4,8 @@ import Primes (generatePrime)
 import Utils (modExp, inv)
 
 
-data PublicKey = PublicKey { pubN :: Integer, pubE :: Integer } deriving (Show, Eq)
-data PrivateKey = PrivateKey { privN :: Integer, privD :: Integer } deriving (Show, Eq)
+data PublicKey = PublicKey { pubN :: Integer, pubE :: Integer } deriving (Show, Read, Eq)
+data PrivateKey = PrivateKey { privN :: Integer, privD :: Integer } deriving (Show, Read, Eq)
 
 generateKeys :: (RandomGen g) => Int -> g -> ((PublicKey, PrivateKey), g)
 generateKeys bits rand = ((PublicKey { pubN = n, pubE = e }, PrivateKey { privN = n, privD = d }), rand'') where
