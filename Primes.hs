@@ -17,7 +17,7 @@ millerRabin n k rand = loop k rand where
         (ProbablyPrime, rand') -> loop (k-1) rand'
 
     (d, s) = factor (n-1) 0
-    factor d s = if d `rem` 2 == 0
+    factor d s = if even d
         then factor (d `div` 2) (s+1)
         else (d, s)
 
@@ -33,7 +33,7 @@ millerRabinOnce n s d rand = (
         (base, rand') = randomR (2, n-2) rand
 
 isPrime :: (RandomGen g) => Integer -> g -> (Bool, g)
-isPrime n rand = if n `rem` 2 == 0 
+isPrime n rand = if even n
         then (False, rand)
         else (res == ProbablyPrime, rand')
     where
