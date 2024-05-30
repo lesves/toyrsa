@@ -12,7 +12,6 @@ help = do
     putStrLn "--enc <keyname> "
     putStrLn "--dec <keyname> "
 
-
 genKeyAndSave :: String -> Int -> IO ()
 genKeyAndSave keyname bits = do
     rand <- getStdGen
@@ -20,18 +19,15 @@ genKeyAndSave keyname bits = do
     writeFile (keyname ++ ".pub") (show pub)
     writeFile keyname (show priv)
 
-
 stringDump :: String -> Integer
 stringDump str = foldl (\a x -> a*base + x) 0 (map (toInteger . fromEnum) str) where
     base = toInteger $ 1 + fromEnum (maxBound :: Char)
-
 
 stringLoad :: Integer -> String
 stringLoad enc = reverse $ convert enc where
     convert 0 = ""
     convert enc = toEnum (fromIntegral $ enc `rem` base):convert (enc `div` base)
     base = toInteger $ 1 + fromEnum (maxBound :: Char)
-
 
 loadKeyAndEncryptFromStdin :: String -> IO ()
 loadKeyAndEncryptFromStdin keyname = do
@@ -43,7 +39,6 @@ loadKeyAndEncryptFromStdin keyname = do
     let c = encrypt pubkey m
     putStrLn $ replicate 80 '='
     putStrLn $ show c
-
 
 loadKeyAndDecryptFromStdin :: String -> IO ()
 loadKeyAndDecryptFromStdin keyname = do
