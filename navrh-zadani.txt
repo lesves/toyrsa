@@ -1,0 +1,8 @@
+Chtěl bych udělat implementaci RSA šifry (anebo jiné asymetrické šifry) v Haskellu. 
+
+Program by měl mít tři režimy:
+ - generování klíčů
+ - šifrování
+ - dešifrování
+
+Samozřejmě by nebyl určený ke skutečnému šifrování, to by mělo asi milión problémů, ale mohl by to být hezký projekt.
