@@ -13,6 +13,8 @@ help = do
     putStrLn "--enc <keyname> "
     putStrLn "--dec <keyname> "
 
+-- key generation interface
+--------------------------------------
 genKeyAndSave :: String -> Int -> IO ()
 genKeyAndSave keyname bits = do
     rand <- getStdGen
@@ -20,6 +22,8 @@ genKeyAndSave keyname bits = do
     writeFile (keyname ++ ".pub") (show pub)
     writeFile keyname (show priv)
 
+-- the padding scheme (insecure)
+--------------------------------------
 stringDump :: String -> Integer
 stringDump str = foldl (\a x -> a*base + x) 0 (map (toInteger . fromEnum) str) where
     base = toInteger $ 1 + fromEnum (maxBound :: Char)
@@ -30,6 +34,8 @@ stringLoad enc = reverse $ convert enc where
     convert enc = toEnum (fromIntegral $ enc `rem` base):convert (enc `div` base)
     base = toInteger $ 1 + fromEnum (maxBound :: Char)
 
+-- encryption & decryption interface
+--------------------------------------
 loadKeyAndEncryptFromStdin :: String -> IO ()
 loadKeyAndEncryptFromStdin keyname = do
     pubkey <- read <$> readFile (keyname ++ ".pub")
@@ -53,6 +59,9 @@ loadKeyAndDecryptFromStdin keyname = do
             let m = decrypt privkey ciphertext
             putStrLn $ replicate 80 '='
             putStrLn $ stringLoad m
+
+-- complete command line interface
+--------------------------------------
 
 main :: IO ()
 main = do
